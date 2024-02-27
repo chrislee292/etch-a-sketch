@@ -6,8 +6,7 @@
 }
 
 .grid-item {
-    width: 25%;
-    height: 25%; /* Adjust based on gridLen */
+    flex: 1 0 25%; /* Adjust based on your preference */
     box-sizing: border-box;
     border: 1px solid black; /* Optional, adds a border to each grid item */
 }
