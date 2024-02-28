@@ -18,10 +18,17 @@ function createGrid() {
     // Clear contents of container
     container.innerHTML = '';
 
+    // Calculate width percentage based on gridLen
+    const itemWidth = 100 / gridLen;
+
     // Create gridLen squared grid items
     for (let i = 0; i < gridLen ** 2; i++) {
         const gridItem = document.createElement('div');
         gridItem.classList.add('grid-item');
+
+        // Set flex bases to fill up the row evenly based on the slider value
+        gridItem.style.flexBasis = `${itemWidth}%`;
+        
         container.appendChild(gridItem);
     }
 }
