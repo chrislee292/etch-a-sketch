@@ -8,7 +8,10 @@ slider.addEventListener('input', () => {
     createGrid();
     hoverEffect();
     resetGrid();
+    randomColorToggle();
 });
+
+let randomColor = false;
 
 function createGrid() {
 
@@ -40,7 +43,11 @@ function hoverEffect() {
     // Attach a 'mouseover' event listener to each .grid-item element
     gridItems.forEach((gridItem) => {
         gridItem.addEventListener('mouseover', () => {
-            gridItem.style.backgroundColor = 'black';
+            if (randomColor) {
+                gridItem.style.backgroundColor = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
+            } else {
+                gridItem.style.backgroundColor = 'black';
+            }
         });
     });
 }
@@ -56,6 +63,14 @@ function resetGrid() {
     });
 }
 
+function randomColorToggle() {
+    const randomColorButton = document.querySelector('#color');
+    randomColorButton.addEventListener('click', () => {
+        randomColor = !randomColor;
+    });
+}
+
 createGrid();
 hoverEffect();
 resetGrid();
+randomColorToggle();
