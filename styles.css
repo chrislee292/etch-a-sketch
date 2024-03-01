@@ -36,6 +36,8 @@ body {
     border: 2px solid #333; /* Border for the grid */
     position: relative; /* Needed for absolute positioning of grid items */
     overflow: hidden; /* Prevents overflow of child elements */
+    padding-bottom: 20px; /* Adds space at the bottom within the container */
+    box-sizing: border-box; /* Ensures padding is included in the overall height */
 }
 
 .grid-item {
@@ -44,6 +46,7 @@ body {
     border-bottom: 1px solid #e0e0e0; /* Light line for grid */
     width: calc(750px / var(--gridLen)); /* Width based on gridLen */
     height: calc(750px / var(--gridLen)); /* Height based on gridLen */
+    box-sizing: border-box; /* Ensures the border is included in the width/height calculations */
 }
 
 button {
