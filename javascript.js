@@ -6,11 +6,10 @@ let gridLen = slider.value;
 
 slider.addEventListener('input', () => {
     gridLen = slider.value;
-    displayValue.textContent = gridLen;
+    displayValue.textContent = ` ${gridLen} x ${gridLen}`;
     createGrid();
     hoverEffect();
     resetGrid();
-    randomColorToggle();
 });
 
 let randomColor = false;
@@ -88,6 +87,12 @@ function randomColorToggle() {
 
     randomColorButton.addEventListener('click', () => {
         randomColor = !randomColor;
+        if (randomColor) {
+            // make button dark
+            randomColorButton.style.backgroundColor = 'darkgrey';
+        } else {
+            randomColorButton.style.backgroundColor = '';
+        }
     });
 }
 
