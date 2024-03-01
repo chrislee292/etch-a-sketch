@@ -1,10 +1,12 @@
 // Create grid when webpage opens
 
 const slider = document.querySelector('#slider');
+const displayValue = document.getElementById('gridValue');
 let gridLen = slider.value;
 
 slider.addEventListener('input', () => {
     gridLen = slider.value;
+    displayValue.textContent = gridLen;
     createGrid();
     hoverEffect();
     resetGrid();
