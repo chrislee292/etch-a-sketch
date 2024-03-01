@@ -15,9 +15,11 @@ slider.addEventListener('input', () => {
 let randomColor = false;
 
 function createGrid() {
-
     // Select grid container
     const container = document.querySelector('#grid-container');
+
+    // Set the CSS variable for grid length
+    container.style.setProperty('--gridLen', gridLen);
     
     // Clear contents of container
     container.innerHTML = '';

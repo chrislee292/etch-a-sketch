@@ -1,40 +1,67 @@
 body {
     font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e0e0e0; /* Soft background color for the page */
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
+}
+
+.title {
+    background-color: #333; /* Dark grey background for the title */
+    color: white; /* White text color */
+    width: 100%; /* Title spans the full width of the page */
+    padding: 10px 0;
+    text-align: center;
+    margin-bottom: 20px; /* Space below the title */
+    font-size: 24px; /* Larger font size for the title */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Subtle shadow for depth */
 }
 
 .controls {
     margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px; /* Space between control items */
 }
 
 #grid-container {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(calc(750px / var(--gridLen)), 1fr)); /* Creates a responsive grid */
     width: 750px; /* Adjust based on your preference */
     height: 750px; /* Adjust to match the width for a square appearance */
-    margin: auto;
+    border: 2px solid #333; /* Border for the grid */
+    position: relative; /* Needed for absolute positioning of grid items */
+    overflow: hidden; /* Prevents overflow of child elements */
 }
 
 .grid-item {
-    box-sizing: border-box;
-    border: 1px solid black; /* Optional, adds a border to each grid item */
+    background-color: #fff; /* White background for each grid item */
+    border-right: 1px solid #e0e0e0; /* Light line for grid */
+    border-bottom: 1px solid #e0e0e0; /* Light line for grid */
+    width: calc(750px / var(--gridLen)); /* Width based on gridLen */
+    height: calc(750px / var(--gridLen)); /* Height based on gridLen */
 }
 
 button {
-    padding: 10px 20px;
-    margin-right: 10px;
+    padding: 10px 15px;
     border: none;
     border-radius: 5px;
     background-color: #f2f2f2;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    font-weight: bold;
 }
 
 button:hover {
     background-color: #ddd;
+}
+
+button:active {
+    background-color: #bbb; /* Darker background color when button is pressed */
 }
 
 input[type="range"] {
@@ -42,5 +69,12 @@ input[type="range"] {
 }
 
 label {
-    margin-right: 10px;
+    font-weight: bold;
+    margin: 0 15px;
+}
+
+/* Additional styles for the active Random Color button */
+#color.active {
+    background-color: #555; /* Darker background for the active state */
+    color: white; /* White text for the active state */
 }
